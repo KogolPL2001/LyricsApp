@@ -3,17 +3,17 @@ package com.example.lyricsapp;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.util.List;
+import java.io.Serializable;
 
 @Entity(tableName = "Song")
-public class Song {
+public class Song implements Serializable {
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String title;
     private String author;
     private String ytlink;
-    private String Content;
-    private String Chords;
+    private String content;
+    private String chords;
 
     public int getId() {
         return id;
@@ -53,18 +53,18 @@ public class Song {
     }
 
     public String getContent() {
-        return Content;
+        return content;
     }
 
     public void setContent(String content) {
-        Content = content;
+        this.content = content;
     }
 
     public String getChords() {
-        return Chords;
+        return chords;
     }
 
     public void setChords(String chords) {
-        Chords = chords;
+        this.chords = chords;
     }
 }

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">LyricsApp</string>
+    <string name="add_song">Add song</string>
+    <string name="hint_add_title">Song title</string>
+    <string name="hint_add_author">Song author</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Fields are required. Song is not added.</string>
+    <string name="song_title">Title:</string>
+    <string name="song_author">Author:</string>
 </resources>
