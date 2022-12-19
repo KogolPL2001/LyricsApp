@@ -30,6 +30,12 @@ public class AddSongActivity extends AppCompatActivity {
         addAuthorEditText = findViewById(R.id.add_song_author);
         addContentEditText = findViewById(R.id.add_song_content);
         addYtLinkEditText = findViewById(R.id.add_song_yt_link);
+        if (getIntent().hasExtra(EXTRA_ADD_SONG_TITLE)) {
+            addTitleEditText.setText(getIntent().getStringExtra(EXTRA_ADD_SONG_TITLE));
+            addAuthorEditText.setText(getIntent().getStringExtra(EXTRA_ADD_SONG_AUTHOR));
+            addContentEditText.setText(getIntent().getStringExtra(EXTRA_ADD_SONG_CONTENT));
+            addYtLinkEditText.setText(getIntent().getStringExtra(EXTRA_ADD_SONG_YTLINK));
+        }
         final Button button = findViewById(R.id.button_save);
         button.setOnClickListener(e -> {
             Intent replyIntent = new Intent();

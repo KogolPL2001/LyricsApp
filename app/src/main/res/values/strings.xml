@@ -9,4 +9,6 @@
     <string name="song_author">Author:</string>
     <string name="hint_add_content">Song lyrics</string>
     <string name="hint_add_yt_link">Youtube link (not required)</string>
+    <string name="edit_song">Edit song</string>
+    <string name="empty_edit_not_saved">Fields are required. Song is not eddited.</string>
 </resources>
