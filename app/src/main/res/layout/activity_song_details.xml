@@ -22,6 +22,12 @@
         android:fontFamily="sans-serif-light"
         android:textSize="18sp" />
 
+    <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+        android:id="@+id/youtube_player_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
     <TextView
         android:id="@+id/song_lyrics"
         android:layout_width="match_parent"

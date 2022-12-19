@@ -8,4 +8,5 @@
     <string name="song_title">Title:</string>
     <string name="song_author">Author:</string>
     <string name="hint_add_content">Song lyrics</string>
+    <string name="hint_add_yt_link">Youtube link (not required)</string>
 </resources>

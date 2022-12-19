@@ -38,10 +38,11 @@ public class Song implements Serializable {
         this.author = author;
     }
 
-    public Song(String title, String author, String content) {
+    public Song(String title, String author, String content, String ytlink) {
         this.title = title;
         this.author = author;
-        this.content=content;
+        this.content = content;
+        this.ytlink = ytlink;
     }
 
     public String getYtlink() {
