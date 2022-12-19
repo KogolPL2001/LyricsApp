@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:theme="@style/LayoutStyle">
 
 
 <EditText
         android:id="@+id/add_song_title"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -17,6 +19,7 @@
 
     <EditText
         android:id="@+id/add_song_author"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -27,6 +30,7 @@
 
     <EditText
         android:id="@+id/add_song_yt_link"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -37,6 +41,7 @@
 
     <EditText
         android:id="@+id/add_song_content"
+        style="@style/EditTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
@@ -49,8 +54,10 @@
 
     <Button
         android:id="@+id/button_save"
+        style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/button_save" />
+        android:text="@string/button_save"
+        />
 
 </LinearLayout>

@@ -1,20 +1,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/song_item"
+    style="@style/ReyclceViewItemStyle"
     android:layout_width="fill_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:padding="6dip">
-
-    <TextView
-        android:id="@+id/song_author"
-        android:layout_width="fill_parent"
-        android:layout_height="26dip"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:ellipsize="marquee"
-        android:singleLine="true"
-        android:text="Description"
-        android:textSize="16sp" />
+    android:padding="6dip"
+    android:theme="@style/LayoutStyle">
 
     <TextView
         android:id="@+id/song_title"
@@ -27,6 +17,19 @@
         android:layout_alignParentRight="true"
         android:gravity="center_vertical"
         android:text="Example application"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/song_author"
+        android:textColor="@color/secondary_light_black"
+        android:layout_width="fill_parent"
+        android:layout_height="26dip"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Description"
         android:textSize="16sp" />
 
 </RelativeLayout>

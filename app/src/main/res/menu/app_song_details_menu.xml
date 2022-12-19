@@ -4,5 +4,6 @@
     <item android:id="@+id/edit_song"
         android:icon="@drawable/ic_edit"
         android:title="@string/edit_song"
+        android:iconTint="@color/white"
         app:showAsAction="ifRoom"/>
 </menu>
