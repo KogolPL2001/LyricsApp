@@ -10,6 +10,7 @@ public class SongDetailsActivity extends AppCompatActivity {
     private Song song;
     private TextView titleTextView;
     private TextView authorTextView;
+    private TextView lyricsTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,7 +18,9 @@ public class SongDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_song_details);
         titleTextView=findViewById(R.id.song_title);
         authorTextView=findViewById(R.id.song_author);
+        lyricsTextView=findViewById(R.id.song_lyrics);
         titleTextView.setText(getResources().getString(R.string.song_title)+" "+song.getTitle());
         authorTextView.setText(getResources().getString(R.string.song_author)+" "+song.getAuthor());
+        lyricsTextView.setText(song.getContent());
     }
 }

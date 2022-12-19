@@ -13,7 +13,6 @@ public class Song implements Serializable {
     private String author;
     private String ytlink;
     private String content;
-    private String chords;
 
     public int getId() {
         return id;
@@ -39,9 +38,10 @@ public class Song implements Serializable {
         this.author = author;
     }
 
-    public Song(String title, String author) {
+    public Song(String title, String author, String content) {
         this.title = title;
         this.author = author;
+        this.content=content;
     }
 
     public String getYtlink() {
@@ -60,11 +60,4 @@ public class Song implements Serializable {
         this.content = content;
     }
 
-    public String getChords() {
-        return chords;
-    }
-
-    public void setChords(String chords) {
-        this.chords = chords;
-    }
 }

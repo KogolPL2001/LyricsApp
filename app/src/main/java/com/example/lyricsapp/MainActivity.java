@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == NEW_SONG_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             Song song = new Song(data.getStringExtra(AddSongActivity.EXTRA_ADD_SONG_TITLE),
-                    data.getStringExtra(AddSongActivity.EXTRA_ADD_SONG_AUTHOR));
+                    data.getStringExtra(AddSongActivity.EXTRA_ADD_SONG_AUTHOR),data.getStringExtra(AddSongActivity.EXTRA_ADD_SONG_CONTENT));
             songsViewModel.insert(song);
         } else if(requestCode==SONG_DETAILS_ACTIVITY_REQUEST_CODE) {
             //empty

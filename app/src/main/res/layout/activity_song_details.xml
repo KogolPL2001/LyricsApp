@@ -21,4 +21,13 @@
         android:autofillHints=""
         android:fontFamily="sans-serif-light"
         android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/song_lyrics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:fontFamily="sans-serif-light"
+        android:textSize="18sp" />
 </LinearLayout>
