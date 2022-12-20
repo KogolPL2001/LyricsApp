@@ -16,24 +16,29 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private SongsViewModel songsViewModel;
     public static final int NEW_SONG_ACTIVITY_REQUEST_CODE=1;
     public static final int  SONG_DETAILS_ACTIVITY_REQUEST_CODE=2;
-
+    final SongsAdapter adapter = new SongsAdapter();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final SongsAdapter adapter = new SongsAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -64,7 +69,23 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
        MenuInflater inflater=getMenuInflater();
        inflater.inflate(R.menu.app_main_menu,menu);
-       return true;
+        MenuItem searchItem = menu.findItem(R.id.search_song);
+        final SearchView searchView = (SearchView) searchItem.getActionView();
+        searchView.setQueryHint(getString(R.string.search_song));
+        searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+        return super.onCreateOptionsMenu(menu);
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -112,8 +133,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Songs adapter
-    private class SongsAdapter extends RecyclerView.Adapter<SongsHolder> {
+    private class SongsAdapter extends RecyclerView.Adapter<SongsHolder> implements  Filterable{
         private List<Song> songs;
+        private List<Song> songsListFull;
+
 
         @NonNull
         @Override
@@ -126,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             if (songs != null) {
                 Song song = songs.get(position);
                 holder.bind(song);
-            } else {
+             } else {
                 Log.d("MainActivity", "No songs");
             }
         }
@@ -141,7 +164,44 @@ public class MainActivity extends AppCompatActivity {
 
         void setBooks(List<Song> songs) {
             this.songs = songs;
+            songsListFull = new ArrayList<>(songs);
             notifyDataSetChanged();
         }
+
+
+        @Override
+        public Filter getFilter() {
+            return exampleFilter;
+        }
+
+        private Filter exampleFilter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                List<Song> filteredList = new ArrayList<>();
+
+                if (constraint == null || constraint.length() == 0) {
+                    filteredList.addAll(songsListFull);
+                } else {
+                    String filterPattern = constraint.toString().toLowerCase().trim();
+
+                    for (Song song : songsListFull) {
+                        if (song.getTitle().toLowerCase().contains(filterPattern)) {
+                            filteredList.add(song);
+                        }
+                    }
+                }
+
+                FilterResults results = new FilterResults();
+                results.values = filteredList;
+
+                return results;
+            }
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                songs.clear();
+                songs.addAll((List) results.values);
+                notifyDataSetChanged();
+            }
+        };
     }
 }
