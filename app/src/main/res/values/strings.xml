@@ -12,4 +12,6 @@
     <string name="edit_song">Edit song</string>
     <string name="empty_edit_not_saved">Fields are required. Song is not eddited.</string>
     <string name="search_song">Search song</string>
+    <string name="downscale_text">Downscale text</string>
+    <string name="upscale_text">Upscale text</string>
 </resources>

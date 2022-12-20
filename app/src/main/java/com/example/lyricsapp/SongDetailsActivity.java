@@ -25,6 +25,7 @@ public class SongDetailsActivity extends AppCompatActivity {
     public static final String EXTRA_SONG_DETAILS = "SONG_DETAILS";
     public static final int  EDIT_SONG_ACTIVITY_REQUEST_CODE=3;
     private Song song;
+    private int textSize=18;
     private TextView titleTextView;
     private TextView authorTextView;
     private TextView lyricsTextView;
@@ -73,8 +74,19 @@ public class SongDetailsActivity extends AppCompatActivity {
             intent.putExtra(AddSongActivity.EXTRA_ADD_SONG_YTLINK, song.getYtlink());
             startActivityForResult(intent,EDIT_SONG_ACTIVITY_REQUEST_CODE);
             return true;
+        }else if(id==R.id.downscale_text){
+            if(titleTextView.getTextSize()>40)
+                textSize--;
+            titleTextView.setTextSize(textSize);
+            authorTextView.setTextSize(textSize);
+            lyricsTextView.setTextSize(textSize);
+        }else if(id==R.id.upscale_text){
+            if(titleTextView.getTextSize()<70)
+                textSize++;
+            titleTextView.setTextSize(textSize);
+            authorTextView.setTextSize(textSize);
+            lyricsTextView.setTextSize(textSize);
         }
-
         return super.onOptionsItemSelected(item);
     }
 
